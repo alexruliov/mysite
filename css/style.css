@@ -65,18 +65,17 @@ ul.nav {text-align: center;
     list-style-type: none;
     text-decoration: none;
     display: block;
-    width: 130px;
+    width: 120px;
     border: 1px;
     background-color:lightskyblue;
-    height: 30px;
     text-align: center;
     padding-top: 5px;
+    padding-bottom: 5px;
     color:white;
+    margin-left: 8px;
+    margin-top: 5px;
     }
 .nav1:link { background-color: lightskyblue;}
 .nav1:hover { background-color: blue; }
 .nav1:active {background-color: deepskyblue; }
-
-
-
 /*------------КОНЕЦ ВЕРТИКАЛЬНОЙ НАВИГАЦИИ-------*/
