@@ -10,12 +10,7 @@ class ValidationForm {
 
     public function forms (){
 
-    $this->name = $_REQUEST['name'];
-    $this->conf_password = $_REQUEST['conf_password'];
 
           }
 }
 
-$form = new ValidationForm();
-$form->name = $a;
-var_dump($a);
