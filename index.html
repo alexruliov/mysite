@@ -19,11 +19,11 @@
         }
 
         function runajax () {
-        var name = $("#name")
+
             $.ajax({
                 type: "POST",
                 url: "php/val.php",
-                data: "key=" + name,
+                data: "name=&location=",
                 success: function(msg){
                     alert( "Data Saved: " + msg );
                 }
