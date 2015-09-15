@@ -9,21 +9,7 @@
 	<meta name="description" content="" />
 	<link href="css/style.css" rel="stylesheet">
     <script src="js/jquery-1.11.3.min.js"></script>
-    <script>
-        $(document).ready(function(){
-
-            $("#name").blur(function () {
-                $.ajax({
-                    type: "POST",
-                    url: "php/val.php",
-                    data: "name="+$("#name").val(),
-                    success: function(msg){
-                        $('.results').append( "Ответ сервера: " + msg );
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="js/name.js"></script>
 </head>
 <body>
 <div class="warp">
@@ -52,22 +38,40 @@
 </div>
 
 <div class="content">
-        <form>
-         Имя пользователя
+        <form class="form-container">
+        <div class="form-cont" style="display:block; float:left">
+        Имя:
         <input type="text" name="name" id="name">
-        <div class="results"></div>
-        Login
-        <input type="text" name="login">
-        Email
-        <input type="text" name="email">
-         Пароль
-        <input type="password" name="pass">
-        Подтвердите пароль
-        <input type="password" name="conf_pass">
-        <br>
-        <input type="button" value="Отправить" id="but">
+        <div class="results" style="float: right"></div>
+        </div>
+        <div class="form-cont" style="display:block; float:left">
+        Login:
+        <input type="text" name="login" id="login">
+        <div class="results_text" style="float: right"></div>
+        </div>
+        <div class="form-cont" style="display:block; float:left">
+        Email:
+        <input type="text" name="email" id="email">
+        <div class="results_email" style="float: right"></div>
+        </div>
+        <div class="form-cont" style="display:block; float:left">
+        Пароль:
+        <input type="password" name="password" id="password">
+        <div class="results_pass" style="float: right"></div>
+        </div>
+        <div class="form-cont" style="display:block; float:left">
+        Login:
+        <input type="password" name="conf_pass" id="conf_pass">
+        <div class="results_conf_pass" style="float: right"></div>
+        </div>
+
+        <div class="submit-container">
+        <input type="button" value="Отправить" id="but" class="submit-button">
+        </div>
+        </div>
         </form>
-   </div>
+        </div>
+
 
 <div class="footer">
     клининговая компания выполняет полный спектр работ по удалению всей имеющейся грязи и пыли. Обычно осуществляется

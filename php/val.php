@@ -2,14 +2,14 @@
 
 class Validator {
 
-    public function prov (){
-            if (! (filter_has_var(INPUT_POST, 'name') &&
-            (strlen(filter_input(INPUT_POST, 'name')) > 0))) {
-                echo '<p style="color: red">Заполните имя</p>';}
-        else echo '<p style="color: green">Все впорядке</p>';}
+    public function name (){
+        if (! (filter_has_var(INPUT_POST, 'name') &&
+        (strlen(filter_input(INPUT_POST, 'name',FILTER_SANITIZE_STRING)) > 0))) {
+        echo '<span style="color: red">Заполните имя</span>';}
+        else echo '<span style="color: green">Все в порядке</span>';}
         }
 
 $c = new Validator();
-$c->prov();
+$c->name();
 
 

@@ -10,10 +10,10 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style1.css" media="screen" rel="stylesheet" type="text/css"/>
     <link href="css/uniform.css" media="screen" rel="stylesheet" type="text/css"/>
-    <!--  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
       <script type="text/javascript" src="js/jquery.tools.js"></script>
       <script type="text/javascript" src="js/jquery.uniform.min.js"></script>
-      <script type="text/javascript" src="js/main.js"></script>-->
+      <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
 <div class="warp">
@@ -53,8 +53,7 @@
             </div>
 
 
-            <form action="php/validation.php" class="TTWForm" method="post" novalidate="">
-
+            <form action="php/process_form.php" class="TTWForm" method="post" novalidate="">
 
                 <div id="field1-container" class="field f_100">
                     <label for="field1">
