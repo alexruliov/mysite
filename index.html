@@ -10,29 +10,21 @@
 	<link href="css/style.css" rel="stylesheet">
     <script src="js/jquery-1.11.3.min.js"></script>
     <script>
-        $( init );
+        $(document).ready(function(){
 
-        function init() {
-
-            $('#but').bind( 'click', runajax );
-
-        }
-
-        function runajax () {
-
-            $.ajax({
-                type: "POST",
-                url: "php/val.php",
-                data: "name="+$("#name").val(),
-                success: function(msg){
-                    $('.results').append( "Ответ сервера: " + msg );
-                }
+            $("#name").blur(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "php/val.php",
+                    data: "name="+$("#name").val(),
+                    success: function(msg){
+                        $('.results').append( "Ответ сервера: " + msg );
+                    }
+                });
             });
 
-        }
-
+        });
     </script>
-
 </head>
 <body>
 <div class="warp">
