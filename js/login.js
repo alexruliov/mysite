@@ -1,12 +1,12 @@
 $(document).ready(function(){
 
-    $("#name").blur (function () {
+    $("#login").blur (function () {
         $.ajax({
             type: "POST",
             url: "php/val.php",
-            data: "name="+$("#name").val(),
+            data: "login="+$("#login").val(),
             success: function(msg){
-                $('.results').html( msg );
+                $('.results_login').html( msg );
 
             }
         });
