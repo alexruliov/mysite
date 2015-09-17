@@ -2,42 +2,50 @@
 
 require_once __DIR__ . '/DB.php';
 
-class Validator {
+class Validation {
 
     public $name;
+    public $a = ['<span style="color: red">Заполните имя</span>',
+        '<span style="color: red">Только английские буквы,</span>',
+        '<span style="color: green">Все в порядке</span>',
+        '<span style="color: red">Login занят</span>',
+        '<span style="color: green">Login занят</span>'];
     public $login;
-    public $email;
-    public $password;
 
-    public function name (){
+    public function empty_name (){
         $this->name = $_POST ['name'];
-        $this->login = $_POST ['login'];
-        $this->email = $_POST ['email'];
-        $this->password = $_POST ['password'];
         if (! (filter_has_var(INPUT_POST, 'name') &&
         (strlen(filter_input(INPUT_POST, 'name',FILTER_SANITIZE_STRING)) > 0))) {
-            return 1;
+            return false;
         }
-        elseif (!ereg("^([a-z,A-Z,А-я,А-Я,0-9]{5,15})$",$this->name)) {
-            return 2;
-                    }
-        else return 3;
+
+        else return true;
+}
+ public function eng_name (){
+
+ if (!ereg("^([a-z,A-Z,А-я,А-Я,0-9]{5,15})$",$this->name)) {
+
+  return false;
+
 
 }
-    public function login (){
+     else return true;
+}
 
+    public function login_name (){
+    $this->login = $_POST ['login'];
     $db= new DB();
-    $res = $db->query('SELECT login FROM users');
-    if (in_array($this->login, $res)) {
-echo 1;
-        } else echo 2;    }
+    $res = $db->query('SELECT FROM users WHERE login=:login', [':login'=>$this->login]);
+$ret = array_merge($res);
+       var_dump ($ret);
+        if (in_array($this->login, $ret)) {
+return true;
+    } else return false;
 }
 
-$c = new Validator();
-if ($c->name() == 1) {echo '<span style="color: red">Заполните имя</span>';};
-if ($c->name() == 2) {echo '<span style="color: red">Только английские буквы</span>';};
-if ($c->name() == 3) {echo '<span style="color: green">Все в порядке</span>';};
-if ($c->login() == 4) {echo '<span style="color: green">Все в порядке</span>';};
-if ($c->login() == 5) {echo '<span style="color: red">Login занят</span>';};
+}
 
+$a = new Validation();
+$a->login_name();
+var_dump($a->login_name());
 

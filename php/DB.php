@@ -15,7 +15,7 @@ class DB {
 
         $sth = $this->dbh->prepare($sql);
         $sth->execute($params);
-        return $sth->fetchAll();
+        return $sth->fetchAll(PDO::FETCH_BOTH );
 
     }
 }
