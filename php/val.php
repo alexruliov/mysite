@@ -19,7 +19,7 @@ class Validation {
         public $login;
     public $email;
     public $pass;
-    public $conf_pass;
+    public $pass1;
 //проверка поля имя на пустоту, применение фильтров.
 public function empty_name (){
         $this->name = $_POST ['name'];
@@ -77,12 +77,12 @@ public function email (){
 
     }
     public function conf_pass(){
-        $this->pass = $_POST['pass'];
-        $this->conf_pass = $_POST ['conf_pass'];
-        if (!ereg("^([a-z,A-Z,А-я,А-Я,0-9]{7,15})$",$this->conf_pass)) {
-            return $this->a[7];}
+        $this->pass1 = $_POST ['pass1'];
 
-        if($this->conf_pass==$this->password && strlen(filter_input(INPUT_POST, 'conf_pass',FILTER_SANITIZE_STRING)) > 0)
+        //if (!ereg("^([a-z,A-Z,А-я,А-Я,0-9]{7,15})$",$this->pass1)) {
+        //return $this->a[7];}
+
+        if($this->pass==$this->password && strlen(filter_input(INPUT_POST, 'pass1',FILTER_SANITIZE_STRING)) > 0)
         {
             return $this->a[6];
         }
